@@ -1,22 +1,29 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+   HomePage({super.key});
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
+  List todoList = [
+    ['Learn Web Development',false],
+    ['Go to Mall' ,false],
+  ]
 
-class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Simple Todo App'),
-        backgroundColor: const Color.fromARGB(255, 204, 133, 215),
-        foregroundColor: const Color.fromARGB(255, 245, 242, 242),
+      backgroundColor: const Color.fromARGB(255, 237, 154, 229),
+      appBar: AppBar(title: const Text(
+        'todo app',
       ),
-      body: const Center(child: Text('Hello Flutter!')),
+      backgroundColor: const Color.fromARGB(255, 205, 12, 182),
+      foregroundColor: Colors.white,
+      ),
+      body: ListView.builder(itemCount: todoList.length, itemBuilder: (BuildContext context, index){
+        return Container(
+          child: Text(todoList[index][0],
+          ),
+        )
+      })
     );
   }
 }
